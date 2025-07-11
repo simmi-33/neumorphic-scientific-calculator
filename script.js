@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const m = date.getMinutes();
     const ampm = h >= 12 ? 'PM' : 'AM';
     h = h % 12 || 12;
-    const time = ${h}:${m < 10 ? '0' + m : m} ${ampm};
+    const time = '{h}:${m < 10 ? '0' + m : m} '{ampm}';
     document.querySelector('#time').innerText = time;
     setTimeout(showTime, 60000);
   };
