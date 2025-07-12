@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const m = date.getMinutes();
     const ampm = h >= 12 ? 'PM' : 'AM';
     h = h % 12 || 12;
-    const time = '{h}:${m < 10 ? '0' + m : m} '{ampm}';
+    const time = `${h}:${m < 10 ? '0' + m : m} ${ampm}`;
     document.querySelector('#time').innerText = time;
     setTimeout(showTime, 60000);
   };
@@ -124,13 +124,13 @@ document.addEventListener('DOMContentLoaded', () => {
           writeText('ln(', 'Math.log(');
           break;
         case '^':
-          writeText('^', '');
+          writeText('^', '**');
           break;
         case 'x!':
           if (lastNum) {
             evalExpression = evalExpression.slice(0, -lastNum.length);
             displayExpression = displayExpression.slice(0, -lastNum.length);
-            writeText(${lastNum}!, fact(${lastNum}));
+            writeText(`${lastNum}!`, `fact(${lastNum})`);
           }
           break;
         default:
